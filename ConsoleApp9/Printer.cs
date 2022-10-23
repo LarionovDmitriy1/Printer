@@ -14,7 +14,7 @@ namespace ConsoleApp9
         private int _inkLevel;
         private bool _scan;
 
-        public Printer(int inkLevel,int price,int sheersPerHour )
+        public Printer(int inkLevel, int price, int sheersPerHour)
         {
             _inkLevel = inkLevel;
             _price = price;
@@ -29,8 +29,17 @@ namespace ConsoleApp9
 
         public void TurnOff()
         {
-            _scan = false;
-            Console.WriteLine("Вы выключили принтер");
+            if (_scan == false)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Ваш принтер выключен");
+                Console.WriteLine();
+            }
+            else
+            {
+                _scan = false;
+                Console.WriteLine("Вы выключили принтер");
+            }
         }
 
         public void Test()
@@ -40,12 +49,12 @@ namespace ConsoleApp9
                 Console.WriteLine("В принтере нет чернил");
                 Console.WriteLine();
             }
-            else if (_inkLevel > 0  & _scan == true)
+            else if (_inkLevel > 0 & _scan == true)
             {
-                Console.WriteLine("Вы запустили тест") ;
+                Console.WriteLine("Вы запустили тест");
                 Console.WriteLine();
                 Console.WriteLine("Вы потратили 10 чернил");
-                _inkLevel=_inkLevel-10;
+                _inkLevel = _inkLevel - 10;
                 Console.WriteLine($"Уровень чернил - {_inkLevel}");
                 Console.WriteLine();
             }
@@ -74,11 +83,11 @@ namespace ConsoleApp9
                     _inkLevel = _inkLevel - x;
                 }
             }
-            else if( _scan == false)
+            else if (_scan == false)
             {
                 Console.WriteLine("Ваш принтер выключен");
             }
-        }        
+        }
         public void GetInfo()
         {
             if (_scan == true)
@@ -92,7 +101,7 @@ namespace ConsoleApp9
             }
             else if (_scan == false)
             {
-                Console.WriteLine("Ваш принтер выключен") ;
+                Console.WriteLine("Ваш принтер выключен");
             }
         }
     }
